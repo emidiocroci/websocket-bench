@@ -19,6 +19,8 @@ program
   .option('-p, --transport <type>', 'type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets')
   .option('-k, --keep-alive', 'Keep alive connection')
   .option('-v, --verbose', 'Verbose Logging')
+  .option('-p, --io-path', 'Socket.io custom path')
+  .option('-q, --io-query', 'Socket.io custom query')
   .parse(process.argv);
 
 if (program.args.length < 1) {
@@ -74,7 +76,9 @@ var options = {
   type          : program.type,
   transport     : program.transport,
   keepAlive     : program.keepAlive,
-  verbose       : program.verbose
+  verbose       : program.verbose,
+  ioPath        : program.io-path,
+  ioQuery       : program.io-query
 };
 
 if (program.verbose) {
